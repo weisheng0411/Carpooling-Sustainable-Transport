@@ -1,0 +1,12 @@
+CREATE TABLE `news` (
+  `news_id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL,
+  `content` varchar(255) NOT NULL,
+  `image` varchar(255) NOT NULL,
+  `date` date NOT NULL,
+  `user_id` bigint unsigned NOT NULL,
+  PRIMARY KEY (`news_id`),
+  UNIQUE KEY `news_id` (`news_id`),
+  KEY `fk_news_user_id` (`user_id`),
+  CONSTRAINT `fk_news_user_id` FOREIGN KEY (`user_id`) REFERENCES `user_acc` (`user_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci

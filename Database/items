@@ -1,0 +1,8 @@
+CREATE TABLE `items` (
+  `Items_ID` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `Name` varchar(255) NOT NULL,
+  `Points_Required` int NOT NULL,
+  `Stock` int NOT NULL,
+  PRIMARY KEY (`Items_ID`),
+  UNIQUE KEY `Items_ID` (`Items_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci

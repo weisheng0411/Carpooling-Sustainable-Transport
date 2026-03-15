@@ -1,0 +1,11 @@
+CREATE TABLE `challenges` (
+  `Challenges_ID` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `Name` varchar(255) NOT NULL,
+  `Description` varchar(255) NOT NULL,
+  `Point` int NOT NULL,
+  `Type` varchar(100) NOT NULL,
+  `Published_date` date NOT NULL,
+  `Photo_URL` varchar(255) NOT NULL,
+  PRIMARY KEY (`Challenges_ID`),
+  UNIQUE KEY `Challenges_ID` (`Challenges_ID`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci

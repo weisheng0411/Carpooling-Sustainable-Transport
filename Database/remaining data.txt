@@ -1,0 +1,84 @@
+-- challenges (5)
+INSERT INTO challenges (Name, Description, Point, Type, Published_date, Photo_URL) VALUES
+('Green Commute', 'Use public transport for a week', 20, 'Transport', '2026-03-01', 'challenges/green_commute.jpg'),
+('Carpool Hero', 'Carpool 3 times', 30, 'Carpool', '2026-03-02', 'challenges/carpool.jpg'),
+('Eco Walk', 'Walk 10km total', 15, 'Fitness', '2026-03-03', 'challenges/walk.jpg'),
+('Bike to Campus', 'Cycle to campus twice', 25, 'Transport', '2026-03-04', 'challenges/bike.jpg'),
+('Zero Emission Day', 'No car for 1 day', 10, 'Environment', '2026-03-05', 'challenges/zero.jpg');
+
+-- items (5)
+INSERT INTO items (Name, Points_Required, Stock) VALUES
+('Tumbler', 50, 100),
+('Eco Bag', 30, 150),
+('USB Fan', 40, 80),
+('Notebook', 20, 200),
+('Water Bottle', 60, 60);
+
+-- achievements (5)
+INSERT INTO achievements (Progress, Start_date, End_date, Bonus_point, Status, User_ID, Challenges_ID) VALUES
+(100, '2026-03-01', '2026-03-07', 5, 'completed', 1, 1),
+(60, '2026-03-02', NULL, NULL, 'ongoing', 2, 2),
+(100, '2026-03-03', '2026-03-06', 3, 'completed', 3, 3),
+(40, '2026-03-04', NULL, NULL, 'ongoing', 4, 4),
+(100, '2026-03-05', '2026-03-05', 2, 'completed', 5, 5);
+
+-- carpool_list (5)
+INSERT INTO carpool_list (driver_id, from_place, to_place, date, time, seats, bording_point, `status( open/close)`) VALUES
+(1, 'APU', 'KLCC', '2026-03-10', '08:00:00', 3, 'Gate A', 'open'),
+(2, 'APU', 'Mid Valley', '2026-03-11', '09:00:00', 2, 'Gate B', 'open'),
+(3, 'APU', 'Sunway', '2026-03-12', '07:30:00', 1, 'Gate C', 'close'),
+(4, 'APU', 'Putrajaya', '2026-03-13', '10:00:00', 4, 'Gate A', 'open'),
+(5, 'APU', 'PJ', '2026-03-14', '08:30:00', 2, 'Gate D', 'close');
+
+-- travel_log (5)
+INSERT INTO travel_log (`Date`, `Energy_saved （CO2）`, Points_earned, CL_ID, User_ID) VALUES
+('2026-03-10', 5, 10, 1, 2),
+('2026-03-11', 6, 12, 2, 3),
+('2026-03-12', 4, 8, 3, 4),
+('2026-03-13', 7, 14, 4, 5),
+('2026-03-14', 5, 10, 5, 1);
+
+-- registration (5)
+INSERT INTO registration (Participant_ID, User_ID) VALUES
+(1,1),(2,2),(3,3),(4,4),(5,5);
+
+-- event_details (5)
+INSERT INTO event_details (Event_ID, Reg_ID) VALUES
+(1,1),(1,2),(2,3),(2,4),(3,5);
+
+-- redeem_record (5)
+INSERT INTO redeem_record (User_ID, Items_ID, Points_spent, Quantity, Date) VALUES
+(1,1,50,1,'2026-03-10'),
+(2,2,30,1,'2026-03-11'),
+(3,3,40,1,'2026-03-12'),
+(4,4,20,1,'2026-03-13'),
+(5,5,60,1,'2026-03-14');
+
+-- ranking (5)
+INSERT INTO ranking (ranking, user_id) VALUES
+(1,4),(2,2),(3,1),(4,5),(5,3);
+
+-- notification (5)
+INSERT INTO notification (title, message, type, date) VALUES
+('Challenge Completed','You completed Green Commute','challenge','2026-03-07'),
+('New Event','Volleyball Championship available','event','2026-03-08'),
+('Reward Redeemed','You redeemed a Tumbler','reward','2026-03-10'),
+('Driver Status','Your driver application updated','driver','2026-03-11'),
+('Ranking Update','You moved up the ranking','ranking','2026-03-12');
+
+
+-- feedback (5)
+INSERT INTO feedback (rating, description, cl_id) VALUES
+(4.5,'Smooth ride',1),
+(4.0,'On time',2),
+(3.5,'Average experience',3),
+(5.0,'Excellent driver',4),
+(4.2,'Comfortable trip',5);
+
+-- customer_service (5)
+INSERT INTO customer_service (title, description, photo_url, user_id) VALUES
+('Login Issue','Cannot login to account',1,1),
+('App Bug','Map not loading',2,2),
+('Payment Question','Points not updated',3,3),
+('Driver Report','Driver late arrival',4,4),
+('Suggestion','Add dark mode',5,5);

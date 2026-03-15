@@ -1,0 +1,76 @@
+//acc_user
+//role :admin,student,lecture
+-- 插入学生用户 (student)
+INSERT INTO user_acc (apu_id, name, username, password, email, phone_number, gender, photo_url, summary_point, current_point, role) VALUES
+('TP0001', 'Ahmad bin Abdullah', 'ahmad2023', 'hashed_pass_1', 'ahmad.abdullah@student.edu.my', 1134567890, 'Male', 'profiles/ahmad.jpg', 85, 72, 'student'),
+('TP0002', 'Siti Nurhaliza binti Kamarudin', 'sitinur2023', 'hashed_pass_2', 'siti.nur@student.edu.my', 1145678901, 'Female', 'profiles/siti.jpg', 92, 88, 'student'),
+('TP0003', 'Rajesh a/l Kumar', 'rajesh_k', 'hashed_pass_3', 'rajesh.kumar@student.edu.my', 1167890123, 'Male', 'profiles/rajesh.jpg', 78, 65, 'student'),
+('TP0004', 'Mei Ling Tan', 'meiling_t', 'hashed_pass_4', 'meiling.tan@student.edu.my', 1178901234, 'Female', 'profiles/meiling.jpg', 95, 90, 'student'),
+('TP0005', 'Muhammad Ali bin Hassan', 'ali_muhd', 'hashed_pass_9', 'ali.hassan@student.edu.my', 1189012345, 'Male', 'profiles/ali.jpg', 88, 80, 'student');
+
+-- 插入讲师用户 (lecture)
+INSERT INTO user_acc (apu_id, name, username, password, email, phone_number, gender, photo_url, current_point, summary_point, role) VALUES
+('TP0006', 'Dr. Wong Chen Lee', 'drwong', 'hashed_pass_5', 'wong.chen@university.edu.my', 1198765432, 'Male', 'profiles/drwong.jpg', 500, 480, 'lecture'),
+('TP0007', 'Prof. Fatimah binti Ismail', 'prof_fatimah', 'hashed_pass_6', 'fatimah.ismail@university.edu.my', 1187654321, 'Female', 'profiles/fatimah.jpg', 520, 500, 'lecture'),
+('TP0008', 'Mr. Ravi a/l Subramaniam', 'ravi_s', 'hashed_pass_7', 'ravi.subra@university.edu.my', 1156789012, 'Male', 'profiles/ravi.jpg', 480, 460, 'lecture'),
+('TP0009', 'Dr. Lim Wei Jie', 'drlim', 'hashed_pass_10', 'lim.wei@university.edu.my', 1143210987, 'Male', 'profiles/lim.jpg', 510, 490, 'lecture');
+
+-- 插入管理员用户 (admin)
+INSERT INTO user_acc (apu_id, name, username, password, email, phone_number, gender, photo_url, current_point, summary_point, role) VALUES
+('TP0010', 'Admin Sistem', 'sysadmin', 'hashed_admin_pass', 'admin@university.edu.my', 1123456789, 'Male', 'profiles/admin.jpg', 0, 0, 'admin'),
+('TP0011', 'Nurul Huda binti Mohd', 'nurul_admin', 'hashed_pass_8', 'nurul.huda@university.edu.my', 1109876543, 'Female', 'profiles/nurul.jpg', 0, 0, 'admin'),
+('TP0012', 'Chong Kok Wai', 'chong_admin', 'hashed_pass_11', 'chong.kw@university.edu.my', 1132109876, 'Male', 'profiles/chong.jpg', 0, 0, 'admin');
+
+
+//organizer
+//status:approve,pending,reject
+-- 插入3个组织者数据（每个社团一个）
+INSERT INTO organizer (User_ID, Description, Status) VALUES
+-- Volleyball Club 排球社（已批准）
+(1, 'Volleyball Club Organizer - Main organizer for volleyball activities', 'pass'),
+
+-- Taekwondo Club 跆拳道社（待审核）
+(2, 'Taekwondo Club President - Head of taekwondo martial arts club', 'pending'),
+
+-- Leo Club 狮子会（已拒绝）
+(3, 'Leo Club Coordinator - Community service and charity events organizer', 'reject');
+
+//driver
+//status: pending,reject,pass
+-- 插入司机数据
+INSERT INTO driver (License, Car_Model, Car_Color, Plate_Number, Seat_Available, IC_Photo_URL, License_Photo_URL, Status, user_id) VALUES
+-- 状态: pass (已通过)
+('D1234567', 'Proton X70', 'White', 'ABC1234', 4, 'ic_photos/ahmad_ic.jpg', 'license_photos/ahmad_license.jpg', 'pass', 1),
+('D2345678', 'Perodua Myvi', 'Red', 'DEF5678', 4, 'ic_photos/siti_ic.jpg', 'license_photos/siti_license.jpg', 'pass', 2),
+
+-- 状态: pending (待审核)
+('D3456789', 'Honda Civic', 'Black', 'GHI9012', 3, 'ic_photos/rajesh_ic.jpg', 'license_photos/rajesh_license.jpg', 'pending', 3),
+('D4567890', 'Toyota Vios', 'Silver', 'JKL3456', 4, 'ic_photos/meiling_ic.jpg', 'license_photos/meiling_license.jpg', 'pending', 4),
+
+-- 状态: reject (已拒绝)
+('D5678901', 'Nissan Almera', 'Blue', 'MNO7890', 5, 'ic_photos/ali_ic.jpg', 'license_photos/ali_license.jpg', 'reject', 5),
+('D6789012', 'Proton Saga', 'Gray', 'PQR1234', 4, 'ic_photos/lim_ic.jpg', 'license_photos/lim_license.jpg', 'reject', 6);
+
+//news
+-- 插入新闻数据
+INSERT INTO news (title, content, image, date) VALUES
+('APU Volleyball Team Wins National Championship', 'The APU volleyball team clinched the national championship title after an intense final match against UM. The team displayed exceptional teamwork and skill throughout the tournament.', 'news/volleyball_championship.jpg', '2026-02-28'),
+('New Taekwondo Club Offers Free Self-Defense Classes', 'Starting next month, the APU Taekwondo Club will provide free basic self-defense classes every Wednesday. All students are welcome to join regardless of experience level.', 'news/taekwondo_classes.jpg', '2026-03-05'),
+('Leo Club Organizes Successful Beach Cleanup Event', 'Over 50 APU students participated in the beach cleanup at Port Dickson last weekend. The event collected more than 200kg of trash and raised awareness about marine conservation.', 'news/beach_cleanup.jpg', '2026-03-12');
+
+//event
+//Duration_Days
+-- 插入3个活动数据（每种状态一个）
+INSERT INTO event (Name, Description, Rule, Start_Date, End_Date, Duration_Days, Location, Points, Photo_URL, Max_member, Status, Organizer_ID) VALUES
+-- 状态: pass (已通过)
+('APU Volleyball Championship', 'Annual volleyball competition between faculties', 'Teams of 6 players, must be APU students, register by March 1st', '2026-03-15 09:00:00', '2026-03-16 18:00:00', 2, 'APU Sports Complex', 50, 'events/volleyball_championship.jpg', 60, 'Active', 1),
+
+-- 状态: pending (待审核)
+('Taekwondo Self-Defense Workshop', 'Basic self-defense techniques for beginners', 'Wear comfortable clothing, no prior experience needed', '2026-04-10 14:00:00', '2026-04-10 17:00:00', 1, 'APU Martial Arts Room', 25, 'events/taekwondo_workshop.jpg', 30, 'Pending', 2),
+
+-- 状态: reject (已拒绝)
+('Leo Club Midnight Charity Run', 'Night charity run to raise funds for orphanage', '5km run, participants must be above 18 years old', '2026-05-20 20:00:00', '2026-05-20 23:00:00', 1, 'APU Campus Track', 30, 'events/charity_run.jpg', 50, 'Upcoming', 3);
+ 
+
+
+

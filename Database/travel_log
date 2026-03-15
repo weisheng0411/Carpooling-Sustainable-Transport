@@ -1,0 +1,14 @@
+CREATE TABLE `travel_log` (
+  `TL_ID` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `Date` date NOT NULL,
+  `Energy_saved （CO2）` int NOT NULL,
+  `Points_earned` int NOT NULL,
+  `CL_ID` bigint unsigned NOT NULL,
+  `User_ID` bigint unsigned NOT NULL,
+  PRIMARY KEY (`TL_ID`),
+  UNIQUE KEY `TL_ID` (`TL_ID`),
+  KEY `fk_log_carpool_list` (`CL_ID`),
+  KEY `fk_log_user` (`User_ID`),
+  CONSTRAINT `fk_log_carpool_list` FOREIGN KEY (`CL_ID`) REFERENCES `carpool_list` (`cl_id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_log_user` FOREIGN KEY (`User_ID`) REFERENCES `user_acc` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci

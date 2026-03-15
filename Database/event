@@ -1,0 +1,19 @@
+CREATE TABLE `event` (
+  `Event_ID` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `Name` varchar(255) NOT NULL,
+  `Description` varchar(255) NOT NULL,
+  `Rule` varchar(255) NOT NULL,
+  `Start_Date` datetime NOT NULL,
+  `End_Date` datetime NOT NULL,
+  `Duration_Days` int NOT NULL,
+  `Location` varchar(255) NOT NULL,
+  `Points` int NOT NULL,
+  `Photo_URL` varchar(255) NOT NULL,
+  `Max_member` int NOT NULL,
+  `Status` varchar(50) NOT NULL,
+  `Organizer_ID` bigint unsigned NOT NULL,
+  PRIMARY KEY (`Event_ID`),
+  UNIQUE KEY `Event_ID` (`Event_ID`),
+  KEY `fk_event_org` (`Organizer_ID`),
+  CONSTRAINT `fk_event_org` FOREIGN KEY (`Organizer_ID`) REFERENCES `organizer` (`Organizer_ID`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci

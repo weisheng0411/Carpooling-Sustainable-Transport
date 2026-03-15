@@ -1,0 +1,10 @@
+CREATE TABLE `organizer` (
+  `Organizer_ID` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `User_ID` bigint unsigned NOT NULL,
+  `Description` varchar(255) NOT NULL,
+  `Status` varchar(50) NOT NULL,
+  PRIMARY KEY (`Organizer_ID`),
+  UNIQUE KEY `Organizer_ID` (`Organizer_ID`),
+  KEY `fk_organizer_user` (`User_ID`),
+  CONSTRAINT `fk_organizer_user` FOREIGN KEY (`User_ID`) REFERENCES `user_acc` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci

@@ -1,0 +1,10 @@
+CREATE TABLE `feedback` (
+  `feedback_id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `rating` float NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `cl_id` bigint unsigned NOT NULL,
+  PRIMARY KEY (`feedback_id`),
+  UNIQUE KEY `feedback_id` (`feedback_id`),
+  KEY `fk_feedback_cl_id` (`cl_id`),
+  CONSTRAINT `fk_feedback_cl_id` FOREIGN KEY (`cl_id`) REFERENCES `carpool_list` (`cl_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci

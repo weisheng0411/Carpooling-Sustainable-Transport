@@ -1,0 +1,11 @@
+CREATE TABLE `event_details` (
+  `ED_ID` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `Event_ID` bigint unsigned NOT NULL,
+  `Reg_ID` bigint unsigned NOT NULL,
+  PRIMARY KEY (`ED_ID`),
+  UNIQUE KEY `ED_ID` (`ED_ID`),
+  KEY `fk_details_reg` (`Reg_ID`),
+  KEY `fk_details_event` (`Event_ID`),
+  CONSTRAINT `fk_details_event` FOREIGN KEY (`Event_ID`) REFERENCES `event` (`Event_ID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT `fk_details_reg` FOREIGN KEY (`Reg_ID`) REFERENCES `registration` (`Reg_ID`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci

@@ -1,0 +1,16 @@
+CREATE TABLE  achievements  (
+   Achievements_ID  bigint unsigned NOT NULL AUTO_INCREMENT,
+   Progress  int NOT NULL,
+   Start_date  date NOT NULL,
+   End_date  date DEFAULT NULL,
+   Bonus_point  int DEFAULT NULL,
+   Status  varchar(50) NOT NULL,
+   User_ID  bigint unsigned NOT NULL,
+   Challenges_ID  bigint unsigned NOT NULL,
+  PRIMARY KEY ( Achievements_ID ),
+  UNIQUE KEY  Achievements_ID  ( Achievements_ID ),
+  KEY  Challenges_ID  ( Challenges_ID ),
+  KEY  fk_achievements_user  ( User_ID ),
+  CONSTRAINT  fk_achievements_challenge  FOREIGN KEY ( Challenges_ID ) REFERENCES  challenges  ( Challenges_ID ) ON DELETE CASCADE ON UPDATE CASCADE,
+  CONSTRAINT  fk_achievements_user  FOREIGN KEY ( User_ID ) REFERENCES  user_acc  ( user_id ) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci

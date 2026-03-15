@@ -1,0 +1,19 @@
+CREATE TABLE user_acc (
+  user_id bigint unsigned NOT NULL AUTO_INCREMENT,
+  apu_id varchar(8) NOT NULL COMMENT 'tp number',
+  name varchar(100) NOT NULL COMMENT 'full name',
+  username varchar(50) NOT NULL COMMENT 'username',
+  password varchar(255) NOT NULL,
+  email varchar(100) NOT NULL,
+  phone_number int DEFAULT NULL,
+  gender varchar(10) DEFAULT NULL,
+  photo_url varchar(255) DEFAULT NULL,
+  summary_point int NOT NULL,
+  current_point int NOT NULL,
+  role varchar(255) NOT NULL,
+  PRIMARY KEY (user_id),
+  UNIQUE KEY user_id (user_id)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+//total_point改去summary_point了
+//summary_point改去current_point了

@@ -1,0 +1,17 @@
+CREATE TABLE `carpool_list` (
+  `cl_id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `driver_id` bigint unsigned NOT NULL,
+  `from_place` varchar(255) NOT NULL,
+  `to_place` varchar(255) NOT NULL,
+  `date` date NOT NULL,
+  `time` time NOT NULL,
+  `seats` int NOT NULL,
+  `bording_point` varchar(255) NOT NULL,
+  `status_open_close` varchar(255) NOT NULL,
+  PRIMARY KEY (`cl_id`),
+  UNIQUE KEY `cl_id` (`cl_id`),
+  KEY `fk_carpool_list_driver_id` (`driver_id`),
+  CONSTRAINT `fk_carpool_list_driver_id` FOREIGN KEY (`driver_id`) REFERENCES `user_acc` (`user_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+
+//status 改了

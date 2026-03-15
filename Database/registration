@@ -1,0 +1,9 @@
+CREATE TABLE `registration` (
+  `Reg_ID` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `Participant_ID` int NOT NULL,
+  `User_ID` bigint unsigned NOT NULL,
+  PRIMARY KEY (`Reg_ID`),
+  UNIQUE KEY `Reg_ID` (`Reg_ID`),
+  KEY `fk_reg_user` (`User_ID`),
+  CONSTRAINT `fk_reg_user` FOREIGN KEY (`User_ID`) REFERENCES `user_acc` (`user_id`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci

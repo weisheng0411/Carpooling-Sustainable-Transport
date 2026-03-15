@@ -1,0 +1,11 @@
+CREATE TABLE `journey` (
+  `journey_id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `distance` varchar(255) NOT NULL,
+  `score` int NOT NULL,
+  `status` varchar(255) NOT NULL,
+  `user_id` bigint unsigned NOT NULL,
+  PRIMARY KEY (`journey_id`),
+  UNIQUE KEY `journey_id` (`journey_id`),
+  KEY `fk_journey_user_id` (`user_id`),
+  CONSTRAINT `fk_journey_user_id` FOREIGN KEY (`user_id`) REFERENCES `user_acc` (`user_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci

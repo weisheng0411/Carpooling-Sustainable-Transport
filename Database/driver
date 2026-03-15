@@ -1,0 +1,16 @@
+CREATE TABLE `driver` (
+  `Driver_ID` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `License` varchar(255) NOT NULL,
+  `Car_Model` varchar(255) NOT NULL,
+  `Car_Color` varchar(50) NOT NULL,
+  `Plate_Number` varchar(10) NOT NULL,
+  `Seat_Available` int NOT NULL,
+  `IC_Photo_URL` varchar(255) NOT NULL,
+  `License_Photo_URL` varchar(255) NOT NULL,
+  `Status` varchar(50) NOT NULL,
+  `user_id` bigint unsigned NOT NULL,
+  PRIMARY KEY (`Driver_ID`),
+  UNIQUE KEY `Driver_ID` (`Driver_ID`),
+  KEY `fk_driver_user_id` (`user_id`),
+  CONSTRAINT `fk_driver_user_id` FOREIGN KEY (`user_id`) REFERENCES `user_acc` (`user_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
